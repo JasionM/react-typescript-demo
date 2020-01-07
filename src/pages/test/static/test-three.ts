@@ -18,11 +18,14 @@ export default class TsThree {
         let scene = new Three.Scene()
         
         const scale = width / height
-        const baseUnit = 2
+        const baseUnit = 6
+
+        const x = baseUnit
+        const y = baseUnit / scale
 
         const camera = 
             <Three.Camera>new Camera(CameraType.Orthographic)
-            .init(-baseUnit, baseUnit, baseUnit * scale, -baseUnit * scale, 1, 10)
+            .init(-x, x, y, -y, 1, 10)
         
         camera.position.set(4, -3, 5)
         camera.lookAt(new Three.Vector3(0, 0, 0))
@@ -30,7 +33,7 @@ export default class TsThree {
         scene.add(camera)
         
         let cube = new Three.Mesh(
-            new Geometry(GeometryType.Plane).init(2, 4),
+            new Geometry(null).init(),
             new Three.MeshBasicMaterial({
                 color: 0xff0000,
                 wireframe: true

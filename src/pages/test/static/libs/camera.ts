@@ -1,8 +1,14 @@
 import * as Three from 'three'
 
 export enum CameraType {
-    Orthographic,  //正交投影
-    Perspective //透视投影
+    /**
+     * 正交投影
+     */
+    Orthographic,
+    /**
+     * 透视投影
+     */
+    Perspective
 }
 
 export default class Camera extends Three.Camera {
