@@ -40,9 +40,11 @@
   "devDependencies": {
     "@types/react-router": "^5.1.3",
     "@types/react-router-dom": "^5.1.3",
+    "@types/stats.js": "^0.17.0",
     "@types/three": "^0.103.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
+    "stats.js": "^0.17.0",
     "three": "^0.112.1"
   }
 }
