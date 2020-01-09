@@ -29,33 +29,27 @@ export enum GeometryType{
 
 export default class Geometry{
     type: GeometryType | null
-    geometry: Three.Geometry = new Three.Geometry()
     constructor(type: GeometryType | null) {
         this.type = type
     }
     init(...params: (number | boolean | string | object | undefined)[]) : Three.Geometry {
-
         switch (this.type) {
             case GeometryType.Box:
-                this.geometry = 
-                    new Three.BoxGeometry(
+                return new Three.BoxGeometry(
                         <number>params[0], 
                         <number>params[1], 
                         <number>params[2], 
                         <number>params[3], 
                         <number>params[4])
-                break
             case GeometryType.Plane:
-                this.geometry = 
-                    new Three.PlaneGeometry(
+                return new Three.PlaneGeometry(
                         <number>params[0], 
                         <number>params[1], 
                         <number>params[2], 
                         <number>params[3])
                 break
             case GeometryType.Sphere:
-                this.geometry = 
-                    new Three.SphereGeometry(
+                return new Three.SphereGeometry(
                         <number>params[0], 
                         <number>params[1], 
                         <number>params[2], 
@@ -65,8 +59,7 @@ export default class Geometry{
                         <number>params[6])
                 break
             case GeometryType.Circle:
-                this.geometry = 
-                    new Three.CircleGeometry(
+                return new Three.CircleGeometry(
                         <number>params[0], 
                         <number>params[1], 
                         <number>params[2], 
@@ -81,8 +74,7 @@ export default class Geometry{
                  * @param heightSegments - 高分段
                  * @param openEnded - 是否有顶面和底面
                  */
-                this.geometry = 
-                    new Three.CylinderGeometry(
+                return new Three.CylinderGeometry(
                         <number>params[0], 
                         <number>params[1], 
                         <number>params[2], 
@@ -106,16 +98,13 @@ export default class Geometry{
                  * } - 底部半径
                  */
                 console.log(params[1])
-                this.geometry = 
-                    new Three.TextGeometry(
+                return new Three.TextGeometry(
                         <string>params[0], 
                         <object>params[1])
                 break
             default: 
-                this.geometry = this.customize()
-                break
+                return this.customize()
         }
-        return this.geometry
     }
     /**
      * 自定义图形
